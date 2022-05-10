@@ -1,0 +1,16 @@
+.Lab{
+    background: url(oak.webp)no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 687px;
+    width: 1400px;
+}
+
+.Label{
+    background-color: darkcyan;
+    border-radius: 5px;
+    flex-direction: column;
+    -ms-flex-align: center;
+}

@@ -1,0 +1,7 @@
+.Home{
+    background-image: url("https://wallpaperaccess.com/full/518545.jpg");
+}
+
+.Cards{
+    flex-direction: column;
+}

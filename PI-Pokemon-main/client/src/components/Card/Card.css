@@ -1,0 +1,7 @@
+.Card{
+    background-color: firebrick;
+    height: 200px;
+    width: 200px;
+    float: left;
+    border-radius: 5%;
+}

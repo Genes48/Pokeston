@@ -1,0 +1,10 @@
+export const GET_POKEMONS="GET_POKEMONS";
+export const FILTER_CREATED="FILTER_CREATED";
+export const ORDEN_NAME="ORDEN_NAME";
+export const ATTACK="ATTACK_ORDEN";
+export const GET_NAME_POKE="GET_NAME_POKE";
+export const GET_TYPES="GET_TYPES";
+export const CREATE_POKE="CREATEPOKE";
+export const FILTER_TYPE="FILTER_TYPE";
+export const GET_DETAIL="GET_DETAIL";
+export const CLEAR="CLEAR";
