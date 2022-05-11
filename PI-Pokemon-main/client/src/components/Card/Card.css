@@ -1,7 +1,26 @@
 .Card{
-    background-color: firebrick;
+    background-color: rgb(148, 13, 13);
     height: 200px;
     width: 200px;
-    float: left;
     border-radius: 5%;
+    margin: 0 15px 15px 15px;
+    float: left;
+    transition: 0.3s;
+}
+.Card:hover{
+    transition: 0.3s;
+    transform: translateY(-0.3rem);
+    -webkit-box-shadow: 5px 5px 15px 5px #000000; 
+    box-shadow: 5px 5px 15px 5px #000000;
+}
+
+.Tipos{
+    display:flex;
+    width: 20%;
+    margin: auto;
+}
+
+h3{
+    text-decoration: none;
+    color: rgb(1, 1, 10);
 }

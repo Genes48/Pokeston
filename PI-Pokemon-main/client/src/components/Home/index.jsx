@@ -7,6 +7,8 @@ import Card from '../Card';
 import Paginado from '../Paginado';
 import SearchBar from '../SearchBar';
 import './Home.css';
+import img from "./img.png";
+import pikachu from "./pikachu-running.gif";
 
 
 export default function Home() {
@@ -61,7 +63,8 @@ export default function Home() {
 
   return (
     <div className='Home'>
-      <h1><img src="C:/Users/Gastón/Pictures/pokemonlogo.png" alt=""/></h1>
+      <div className='Log'><img src={img} className='Logo' alt="" height="150px"  width="350px"/></div>
+      <div className='Inicio'>
       <Link to="/create"><button>Crea tu propio pokemon!</button></Link>
       <div>
         <span>Filtrar por tipos </span>
@@ -89,6 +92,7 @@ export default function Home() {
           <option value="desc">Ataque descendente</option>
         </select>
         <SearchBar/>
+        </div>
         <Paginado pokesPerPage={pokemonsPerPage} allPokes={allPokemons.length} paginar={paginado}/>
         <div className='Cards'>
          {currentPokes.length?
@@ -96,9 +100,9 @@ export default function Home() {
           return(
             <Card nam={a.name} ima={a.img} type={a.types} id={a.id} key={a.id}></Card>
             )
-          }):<div>
-            <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Ftenor.com%2Fes%2Fver%2Fpikachu-running-run-run-away-gif-13709403&psig=AOvVaw12cf_S861EoDZYt7QHp2FM&ust=1652131397078000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCICBgZzr0PcCFQAAAAAdAAAAABAD" alt="" widht= "200px" height= "200px"/>
-            <h2>Cargando</h2>
+          }):<div className='Cargando'>
+            <img src={pikachu} alt="Not Found" widht= "200px" height= "200px"/>
+            <h2>Cargando...</h2>
             </div>} 
             </div>
       </div>

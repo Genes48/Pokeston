@@ -169,54 +169,54 @@ export default function CreatePokemon() {
   return (
     <div className='Lab'>
         <Link to="/home"><button>Volver a home</button></Link>
-        <h1>Creá tu pokemon :D</h1>
-        <form>
+        <h1 className='Title'>Creá tu pokemon :D</h1>
+        <form className='Form'>
             <div>
                 <label className='Label'>Nombre:</label>
-                <input type="text" value={input.name} name= "name" onChange={(e)=>{handleChange(e);validateName(e)}}/>
-                {error.name===""?<span></span>:<span>{error.name}</span>}
+                <input type="text" value={input.name} className='Input' name= "name" onChange={(e)=>{handleChange(e);validateName(e)}}/>
+            {error.name===""?<span></span>:<span className='Error'>{error.name}</span>}
             </div>
             <div>
                 <label className='Label'>Puntos de salud:</label>
-                <input type="number" value={input.hp} name= "hp" onChange={(e)=>{handleChange(e); validateHp(e)}}/>
-                {error.hp===""?<span></span>:<span>{error.hp}</span>}
+                <input type="number" value={input.hp} className='Input' name= "hp" onChange={(e)=>{handleChange(e); validateHp(e)}}/>
+            {error.hp===""?<span></span>:<span className='Error'>{error.hp}</span>}
             </div>
             <div>
                 <label className='Label'>Ataque:</label>
-                <input type="number" value={input.attack} name= "attack" onChange={(e)=>handleChange(e)}/>
+                <input type="number" value={input.attack} className='Input' name= "attack" onChange={(e)=>handleChange(e)}/>
             </div>
             <div>
                 <label className='Label'>Ataque especial:</label>
-                <input type="number" value={input.special_attack} name= "special_attack" onChange={(e)=>handleChange(e)}/>
+                <input type="number" value={input.special_attack} className='Input' name= "special_attack" onChange={(e)=>handleChange(e)}/>
             </div>
             <div>
                 <label className='Label'>Defensa:</label>
-                <input type="number" value={input.defense} name= "defense" onChange={(e)=>handleChange(e)}/>
+                <input type="number" value={input.defense} className='Input' name= "defense" onChange={(e)=>handleChange(e)}/>
             </div>
             <div>
                 <label className='Label'>Defensa especial:</label>
-                <input type="number" value={input.special_defense} name= "special_defense" onChange={(e)=>handleChange(e)}/>
+                <input type="number" value={input.special_defense} className='Input' name= "special_defense" onChange={(e)=>handleChange(e)}/>
             </div>
             <div>
                 <label className='Label'>Velocidad:</label>
-                <input type="number" value={input.speed} name= "speed" onChange={(e)=>{handleChange(e); validateSpeed(e)}}/>
-                {error.speed===""?<span></span>:<span>{error.speed}</span>}
+                <input type="number" value={input.speed} className='Input' name= "speed" onChange={(e)=>{handleChange(e); validateSpeed(e)}}/>
+                {error.speed===""?<span></span>:<span className='Error'>{error.speed}</span>}
             </div>
             <div>
                 <label className='Label'>Altura:</label>
-                <input type="number" value={input.height} name= "height" onChange={(e)=>{handleChange(e); validateHeight(e)}}/>
+                <input type="number" value={input.height} className='Input' name= "height" onChange={(e)=>{handleChange(e); validateHeight(e)}}/>
                 <span className='Label'>m.</span>
-                {error.height===""?<span></span>:<span>{error.height}</span>}
+                {error.height===""?<span></span>:<span className='Error'>{error.height}</span>}
             </div>
             <div>
                 <label className='Label'>Peso:</label>
-                <input type="number" value={input.weight} name= "weight" onChange={(e)=>{handleChange(e); validateWeight(e)}}/>
+                <input type="number" value={input.weight} className='Input' name= "weight" onChange={(e)=>{handleChange(e); validateWeight(e)}}/>
                 <span className='Label'>Kg.</span>
-                {error.weight===""?<span></span>:<span>{error.weight}</span>}
+                {error.weight===""?<span></span>:<span className='Error'>{error.weight}</span>}
             </div>
             <div>
-            <label className='Label'>Tipo:</label>
-            <select disabled={disables} onChange={(e)=>{handleSelect(e)}}>
+            <label className='SelectLabel'>Tipo:</label>
+            <select className='Select' disabled={disables} onChange={(e)=>{handleSelect(e)}}>
                 {types.map((el)=>(
                     <option value={el.name}>{el.name}</option>
                 ))}
@@ -229,7 +229,7 @@ export default function CreatePokemon() {
                 )}
             </div>
             <div>
-            <button disabled={disabled} type="submit" onClick={(e)=>handleSubmit(e)}>Crear Pokemon</button>
+            <button className='Boton' disabled={disabled} type="submit" onClick={(e)=>handleSubmit(e)}>Crear Pokemon</button>
             </div>
         </form>
     </div>

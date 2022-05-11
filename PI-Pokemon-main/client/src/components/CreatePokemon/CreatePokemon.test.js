@@ -1,7 +1,10 @@
-/* import React from 'react';
+import React from 'react';
 import { render } from '@testing-library/react';
 import { shallow, mount } from 'enzyme'; 
 import CreatePokemon from "./index.jsx";
+import Enzyme,{ configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-17';
+configure({ Adapter: new Adapter() });
 
 describe('CreatePokemon', () => {
   let wrapper;
@@ -34,24 +37,24 @@ describe('CreatePokemon', () => {
     expect(element.name).toBe('hp');
   });
 });
- */
 
-import React from "react";
+
+/* import React from "react";
 import { configure, mount } from "enzyme";
-/* import Adapter from "@wojtekmaj/enzyme-adapter-react-17"; */
-/* import configureStore from "redux-mock-store"; */
+ import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
+ import configureStore from "redux-mock-store"; 
 import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router-dom";
 import thunk from "redux-thunk";
 import isReact from "is-react";
 
-/* import * as data from "../../db.json"; */
+import * as data from "../../db.json";
 import CreatePokemon from "./index.jsx";
-/* import * as actions from "../redux/actions"; */
+import * as actions from "../redux/actions";
 
-/* configure({ adapter: new Adapter() }); */
+configure({ adapter: new Adapter() });
 
-describe("<CreateHouse />", () => {
+describe("<CreatePokemon />", () => {
 
   beforeAll(() => expect(isReact.classComponent(CreatePokemon)).toBeFalsy());
 
@@ -105,3 +108,4 @@ describe("<CreateHouse />", () => {
     });
   });
 })});
+ */

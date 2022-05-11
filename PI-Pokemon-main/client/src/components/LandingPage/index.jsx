@@ -8,7 +8,7 @@ export default function LandingPage(){
         <div className="Landing">
         <h1>Prepárate para una aventura Pokemon</h1>
         <Link to ="/home">
-            <button>Entrar</button>
+            <button className="Bot">Entrar</button>
         </Link>
         </div>
     )

@@ -23,8 +23,11 @@ export default function Pokemon() {
   return (
     <div className='Detail'>
       <Link to="/home"><button>Volver a página principal</button></Link>
+      <div className='Izq'>
       <h1>{pokeDet.name}</h1>
-      <img src={pokeDet.img} alt="" height="500px" width="500px"/>
+      <img src={pokeDet.img} alt="" height="300px" width="300px"/>
+      </div>
+      <div className='Der'>
       <h3>Puntos de salud: {pokeDet.hp}</h3>
       <h3>Ataque: {pokeDet.attack}</h3>
       <h3>Ataque especial: {pokeDet.special_attack}</h3>
@@ -37,6 +40,7 @@ export default function Pokemon() {
       <h4>Altura: {(pokeDet.height)/10} m.</h4>
       <h4>Peso: {(pokeDet.weight)/10} kg.</h4>
       <h4>ID: {pokeDet.id}</h4>
+      </div>
     </div>
   )
 }
