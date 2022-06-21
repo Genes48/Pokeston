@@ -22,3 +22,19 @@
     margin-top: 30px;
  width: 40%;
 }
+
+.Buton{
+    background: rgb(182, 25, 25);
+    border: none;
+    padding: 5px;
+    color: white;
+    margin: auto;
+    font-family: cursive;
+    border-radius: 30px;
+    transition: 0.3s;
+    margin-top: 8px;
+}
+.Buton:hover{
+    transition: 0.3s;
+    background-color: purple;
+}

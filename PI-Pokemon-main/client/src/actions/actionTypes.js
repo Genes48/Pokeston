@@ -8,3 +8,4 @@ export const CREATE_POKE="CREATEPOKE";
 export const FILTER_TYPE="FILTER_TYPE";
 export const GET_DETAIL="GET_DETAIL";
 export const CLEAR="CLEAR";
+export const DELETE="DELETE";

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
-import { getTypes, postPoke } from '../../actions';
+import {  getPokemons, getTypes, postPoke } from '../../actions';
 import { useDispatch, useSelector } from 'react-redux';
 import './CreatePokemon.css';
 
@@ -65,6 +65,7 @@ export default function CreatePokemon() {
 
     useEffect(()=>{
         dispatch(getTypes())
+        return()=>dispatch(getPokemons())
     },[dispatch])
 
 
@@ -168,18 +169,19 @@ export default function CreatePokemon() {
 
   return (
     <div className='Lab'>
-        <Link to="/home"><button>Volver a home</button></Link>
+        <Link to="/home"><button className='Volver'>Volver a home</button></Link>
         <h1 className='Title'>Creá tu pokemon :D</h1>
+        <h2 className='Reco'>Recuerda llenar todos los campos para poder crearlo</h2>
         <form className='Form'>
             <div>
                 <label className='Label'>Nombre:</label>
                 <input type="text" value={input.name} className='Input' name= "name" onChange={(e)=>{handleChange(e);validateName(e)}}/>
-            {error.name===""?<span></span>:<span className='Error'>{error.name}</span>}
+            <div>{error.name===""?<span></span>:<span className='Error'>{error.name}</span>}</div>
             </div>
             <div>
                 <label className='Label'>Puntos de salud:</label>
                 <input type="number" value={input.hp} className='Input' name= "hp" onChange={(e)=>{handleChange(e); validateHp(e)}}/>
-            {error.hp===""?<span></span>:<span className='Error'>{error.hp}</span>}
+            <div>{error.hp===""?<span></span>:<span className='Error'>{error.hp}</span>}</div>
             </div>
             <div>
                 <label className='Label'>Ataque:</label>
@@ -200,22 +202,22 @@ export default function CreatePokemon() {
             <div>
                 <label className='Label'>Velocidad:</label>
                 <input type="number" value={input.speed} className='Input' name= "speed" onChange={(e)=>{handleChange(e); validateSpeed(e)}}/>
-                {error.speed===""?<span></span>:<span className='Error'>{error.speed}</span>}
+                <div>{error.speed===""?<span></span>:<span className='Error'>{error.speed}</span>}</div>
             </div>
             <div>
                 <label className='Label'>Altura:</label>
                 <input type="number" value={input.height} className='Input' name= "height" onChange={(e)=>{handleChange(e); validateHeight(e)}}/>
                 <span className='Label'>m.</span>
-                {error.height===""?<span></span>:<span className='Error'>{error.height}</span>}
+                <div>{error.height===""?<span></span>:<span className='Error'>{error.height}</span>}</div>
             </div>
             <div>
                 <label className='Label'>Peso:</label>
                 <input type="number" value={input.weight} className='Input' name= "weight" onChange={(e)=>{handleChange(e); validateWeight(e)}}/>
                 <span className='Label'>Kg.</span>
-                {error.weight===""?<span></span>:<span className='Error'>{error.weight}</span>}
+                <div>{error.weight===""?<span></span>:<span className='Error'>{error.weight}</span>}</div>
             </div>
             <div>
-            <label className='SelectLabel'>Tipo:</label>
+            <label className='Label'>Tipo:</label>
             <select className='Select' disabled={disables} onChange={(e)=>{handleSelect(e)}}>
                 {types.map((el)=>(
                     <option value={el.name}>{el.name}</option>
@@ -223,7 +225,7 @@ export default function CreatePokemon() {
             </select>
             {input.types.map(typ=>
               <div>
-              <span value={typ} key={typ.id}>{typ}</span>
+              <span className='Label' value={typ} key={typ.id}>{typ}</span>
               <button value={typ} onClick={(e)=>handleDelete(e)} key={typ.id}>x</button>
               </div>
                 )}

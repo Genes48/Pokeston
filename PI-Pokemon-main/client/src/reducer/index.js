@@ -1,4 +1,4 @@
-import { GET_POKEMONS, FILTER_CREATED, ORDEN_NAME, ATTACK, GET_NAME_POKE, GET_TYPES, CREATE_POKE,FILTER_TYPE, GET_DETAIL, CLEAR } from "../actions/actionTypes";
+import { GET_POKEMONS, FILTER_CREATED, ORDEN_NAME, ATTACK, GET_NAME_POKE, GET_TYPES, CREATE_POKE,FILTER_TYPE, GET_DETAIL, CLEAR, DELETE } from "../actions/actionTypes";
 
 const initialState={
     pokemons: [],
@@ -71,6 +71,10 @@ function rootReducer(state=initialState, {type, payload}){
             }
             else{pokesType=allPokes2.filter(e=>e.types[1]?e.types[1].name===payload||e.types[0].name===payload:
                     e.types[0].name===payload   )}
+            if(pokesType.length===0) { alert("No hay pokemones con ese tipo")
+            return{
+                ...state,
+            }}
             return{
                 ...state,
                 pokemons: pokesType
@@ -110,6 +114,9 @@ function rootReducer(state=initialState, {type, payload}){
         case CLEAR: return {
             ...state,
             detail:[]
+        }
+        case DELETE: return{
+            ...state
         }
         default: return state
     }

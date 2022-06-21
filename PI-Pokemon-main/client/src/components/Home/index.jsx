@@ -6,6 +6,7 @@ import { getPokemons, filterCreated, ordenName, ordenAttack, getTypes, filterTyp
 import Card from '../Card';
 import Paginado from '../Paginado';
 import SearchBar from '../SearchBar';
+import Footer from '../Footer';
 import './Home.css';
 import img from "./img.png";
 import pikachu from "./pikachu-running.gif";
@@ -16,7 +17,7 @@ export default function Home() {
   const dispatch = useDispatch();
   var allPokemons = useSelector((state)=>state.pokemons);
   const allTypes = useSelector((state)=>state.types)
-
+  var desabilitar = false
   const [currentPage, setCurrentPage] = useState(1)
   const pokemonsPerPage=12
   const lastPoke = currentPage*pokemonsPerPage
@@ -27,13 +28,19 @@ export default function Home() {
   const paginado = (numpag)=>{
     setCurrentPage(numpag)
   }
+  const pag = (e)=>{
+    if(e.target.value==="previous")setCurrentPage(currentPage-1)
+    if(e.target.value==="next")setCurrentPage(currentPage+1)
+  }
   const [orden, setOrden]= useState("")
 
-  useEffect(()=>{
-    dispatch (getPokemons());
-    dispatch (getTypes());
-  }, [dispatch])
+  useEffect (() => {
+    if (allPokemons.length === 0 && allTypes.length === 0) {dispatch(getPokemons()).then(()=> dispatch(getTypes()))};
+}, [dispatch, allPokemons.length, allTypes.length])
 
+  if(allPokemons.length===0){
+    desabilitar=true
+  }
 
   function handleFilterTypes(e){
     e.preventDefault();
@@ -65,10 +72,11 @@ export default function Home() {
     <div className='Home'>
       <div className='Log'><img src={img} className='Logo' alt="" height="150px"  width="350px"/></div>
       <div className='Inicio'>
+        <button disabled={desabilitar} onClick={()=>dispatch (filterCreated("all"))}> Volver a cargar todos los pokemons</button>
       <Link to="/create"><button>Crea tu propio pokemon!</button></Link>
       <div>
         <span>Filtrar por tipos </span>
-        <select onChange={e=>handleFilterTypes(e)}>
+        <select disabled={desabilitar} onChange={e=>handleFilterTypes(e)}>
           <option value="all">Todos</option>
           {allTypes.map(tipo=>{
             return (<option value={tipo.name} key={tipo.name+tipo.id}>{tipo.name}</option>)})}
@@ -76,24 +84,24 @@ export default function Home() {
       </div>
       <div>
         <span>Filtrar por creación</span>
-        <select onChange={e=>handleFilterCreated(e)}>
+        <select disabled={desabilitar} onChange={e=>handleFilterCreated(e)}>
           <option value="all">Todos</option>
           <option value="api">Existentes</option>
           <option value="db">Creados</option>
         </select>
       </div>
       <span>Órdenes </span>
-        <select onChange={e=>handleOrdenName(e)}>
+        <select disabled={desabilitar} onChange={e=>handleOrdenName(e)}>
           <option value="asc">Alfabético</option>
           <option value="desc">Alfabético invertido</option>
         </select>
-        <select onChange={e=>handleOrdenAttack(e)}>
+        <select disabled={desabilitar} onChange={e=>handleOrdenAttack(e)}>
           <option value="asc">Ataque ascendente</option>
           <option value="desc">Ataque descendente</option>
         </select>
         <SearchBar/>
         </div>
-        <Paginado pokesPerPage={pokemonsPerPage} allPokes={allPokemons.length} paginar={paginado}/>
+        {!desabilitar?<Paginado pokesPerPage={pokemonsPerPage} current={currentPage} allPokes={allPokemons.length} paginar={paginado} pagi={pag}/>:null}
         <div className='Cards'>
          {currentPokes.length?
          currentPokes.map(a=>{
@@ -105,6 +113,7 @@ export default function Home() {
             <h2>Cargando...</h2>
             </div>} 
             </div>
+            <Footer />
       </div>
   )
 }

@@ -2,7 +2,7 @@ const { Router } = require('express');
 const axios = require("axios");
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
-const { getAllPokes, getPokebyId, getPokebyName, getTypes, createPoke} = require("./functions")
+const { getAllPokes, getPokebyId, getPokebyName, getTypes, createPoke, deletePokemon} = require("./functions")
 const { Pokemon , Type } = require('../db.js')
 
 
@@ -38,6 +38,16 @@ router.get("/pokemons/:id", async function(req,res){
     }
 })
 
+router.delete("/pokemons/:id", async function(req,res){
+    let{id}=req.params
+    try{
+        var pok = await deletePokemon(id)
+        res.send("El pokemon ha sido eliminado")
+    }
+    catch(e){
+        res.send(e.message)
+    }
+})
 
 router.post("/pokemons", async function(req,res){
     let {name, attack, special_attack, defense, special_defense, hp, speed, height, weight, types}=req.body

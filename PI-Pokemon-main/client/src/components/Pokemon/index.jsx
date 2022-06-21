@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import { getDetail, clear } from '../../actions';
+import { getDetail, clear, deletePokemon } from '../../actions';
 import './Pokemon.css';
 
 
@@ -18,16 +18,22 @@ export default function Pokemon() {
     }
   },[dispatch, id])
 
+  function handleClick(id){
+    dispatch(deletePokemon(id))
+  }
+
   var pokeDet = useSelector(state=>state.detail)
-  console.log(pokeDet)
+
   return (
     <div className='Detail'>
-      <Link to="/home"><button>Volver a página principal</button></Link>
+      <Link to="/home"><button className='Buton'>Volver a página principal</button></Link>
+      {pokeDet.createdInDb&&<button onClick={()=>handleClick(pokeDet.id)} className='Buton'>Eliminar pokemon</button>}
       <div className='Izq'>
       <h1>{pokeDet.name}</h1>
       <img src={pokeDet.img} alt="" height="300px" width="300px"/>
       </div>
       <div className='Der'>
+        <h2 className='Stats'>Stats</h2>
       <h3>Puntos de salud: {pokeDet.hp}</h3>
       <h3>Ataque: {pokeDet.attack}</h3>
       <h3>Ataque especial: {pokeDet.special_attack}</h3>

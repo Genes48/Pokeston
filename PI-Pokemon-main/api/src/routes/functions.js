@@ -5,7 +5,7 @@ const { Pokemon , Type } = require('../db.js')
 const getApiPokes = async function(){
     var pokes=[];
     try{
-    for(let i=1;i<=25;i++){
+    for(let i=1;i<=40;i++){
         const apiUrl = await axios.get (`https://pokeapi.co/api/v2/pokemon/${i}`)
         let a=apiUrl.data
         let typ2= null
@@ -96,6 +96,25 @@ const getPokebyId = async function(id){
             res.json(e)
         }
     
+}
+
+const deletePokemon = async function(id){
+    try{
+        var poke = await Pokemon.findByPk(id, {
+            include:{
+                model:Type,
+                attributes: ["name"],
+                through: {
+                    attributes:[]
+                }
+            }
+        })
+        await poke.destroy()
+        res.send("El pokemon ha sido eliminado")
+    }
+    catch(e){
+        res.json(e.message)
+    }
 }
 
 const getPokebyName = async function(name){
@@ -204,4 +223,4 @@ const getTypes = async function(){
         res.json(e)
     }
 }
-module.exports = {getAllPokes, getPokebyId, getPokebyName, getTypes, createPoke}
+module.exports = {getAllPokes, getPokebyId, getPokebyName, getTypes, createPoke, deletePokemon}

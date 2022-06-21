@@ -19,14 +19,15 @@
 
 .Error{
     color: red;
-    font-family: cursive;
+    font-family: gears;
+    font-weight: bold;
 }
 
 .Form{
     background-color: rgb(19, 30, 97);
     width: 30rem;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 65px;
     border-radius: 4px;
     font-family: 'calibri';
     color: white;
@@ -41,7 +42,11 @@
 
 .Title{
     font-family: cursive;
-    color: rgb(12, 2, 2);
+    color: black;
+    border: red;
+    border-width: 5px;
+    font-weight: bold;
+    font-size: 3rem;
 }
 /* .Form {
     width: 35rem;
@@ -88,19 +93,41 @@
 
 .Boton {
     width: 40%;
-    background: rgb(105, 28, 28);
+    background: rgb(182, 25, 25);
     border: none;
     padding: 5px;
     color: white;
     margin: auto;
-    font-family: gears;
+    font-family: cursive;
     font-size: 1.5rem;
     border-radius: 30px;
     transition: 0.3s;
+    margin-top: 8px;
 }
 .Boton:hover{
     transition: 0.3s;
     background-color: purple;
+}
+
+.Volver{
+    background: rgb(182, 25, 25);
+    border: none;
+    padding: 5px;
+    color: white;
+    margin: auto;
+    font-family: cursive;
+    border-radius: 30px;
+    transition: 0.3s;
+    margin-top: 8px;
+}
+.Volver:hover{
+    transition: 0.3s;
+    background-color: purple;
+}
+
+.Reco{
+    color: rgb(19, 30, 97);
+    font-family: cursive;
 }
 
 /* .Label{

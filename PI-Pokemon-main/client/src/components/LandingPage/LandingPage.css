@@ -7,17 +7,25 @@
     position: absolute;
 }
 
+.Titulo{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    margin-top: 45px;
+    color: rgb(192, 32, 32);
+}
+
 .Bot {
-    width: 15%;
-    background: rgb(105, 28, 28);
+    width: 10%;
+    background: rgb(148, 37, 37);
     border: none;
     padding: 5px;
     color: white;
     margin: auto;
-    font-family: gears;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1.5rem;
     border-radius: 30px;
     transition: 0.3s;
+    font-weight: bold;
 }
 .Bot:hover{
     transition: 0.3s;

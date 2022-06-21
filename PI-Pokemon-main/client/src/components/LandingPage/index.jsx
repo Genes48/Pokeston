@@ -6,7 +6,7 @@ export default function LandingPage(){
 
     return(
         <div className="Landing">
-        <h1>Prepárate para una aventura Pokemon</h1>
+        <h1 className="Titulo">Prepárate para una aventura Pokemon</h1>
         <Link to ="/home">
             <button className="Bot">Entrar</button>
         </Link>

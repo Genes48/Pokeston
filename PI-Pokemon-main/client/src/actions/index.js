@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_POKEMONS, FILTER_CREATED, ORDEN_NAME, ATTACK, GET_NAME_POKE, GET_TYPES, FILTER_TYPE, GET_DETAIL, CLEAR } from "./actionTypes";
+import { GET_POKEMONS, FILTER_CREATED, ORDEN_NAME, ATTACK, GET_NAME_POKE, GET_TYPES, FILTER_TYPE, GET_DETAIL, CLEAR, DELETE } from "./actionTypes";
 
 export function getPokemons(){
     return async function(dispatch){
@@ -42,6 +42,18 @@ export function getNamePoke(name){
     }
 }
 
+export function deletePokemon(id){
+    return async function(dispatch){
+        try{
+            var response = await axios.delete(`http://localhost:3001/pokemons/${id}`);
+            return dispatch({type: DELETE})
+        }
+        catch(e){
+            console.log(e)
+        }
+    }
+}
+
 export function getTypes (){
     return async function(dispatch){
         try{
@@ -55,7 +67,7 @@ export function getTypes (){
 }
 
 export function postPoke(payload){
-    return async function(dispatch){
+    return async function(){
         try{
         var response = await axios.post("http://localhost:3001/pokemons", payload)
         return response;
