@@ -4,6 +4,13 @@ The first 40 pokemons according to the kanto pokedex are displayed in the home p
 To view the detail and stats of a particullar pokemon you must click its name.
 In addition, you can create a new pokemon by clicking in the "Crear Pokemon" button.
 
+# Stack of technologies
+* Java script
+* React
+* Redux
+* Express
+* PostgreSQL
+
 # Quick Start
 * Clone repository
 * Run the next commands in the folders "api" and "client":
