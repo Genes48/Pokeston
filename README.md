@@ -5,11 +5,12 @@ To view the detail and stats of a particullar pokemon you must click its name.
 In addition, you can create a new pokemon by clicking in the "Crear Pokemon" button.
 
 # Stack of technologies
-* Java script
+* JavaScript
 * React
 * Redux
 * Express
 * PostgreSQL
+* CSS
 
 # Quick Start
 * Clone repository
