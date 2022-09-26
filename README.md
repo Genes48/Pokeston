@@ -12,9 +12,5 @@ In addition, you can create a new pokemon by clicking in the "Crear Pokemon" but
 * PostgreSQL
 * CSS
 
-# Quick Start
-* Clone repository
-* Run the next commands in the folders "api" and "client":
-	* npm install
-	* npm start
-* open http://localhost:3000 in your browser
+# Visit web site
+* https://pokeston-genes48.vercel.app/
