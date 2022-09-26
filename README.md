@@ -13,4 +13,4 @@ In addition, you can create a new pokemon by clicking in the "Crear Pokemon" but
 * CSS
 
 # Visit web site
-* https://pokeston-genes48.vercel.app/
+ https://pokeston-genes48.vercel.app/
